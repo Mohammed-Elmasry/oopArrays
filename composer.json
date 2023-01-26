@@ -1,0 +1,19 @@
+{
+    "name": "codebuster/oop-arrays",
+    "description": "A package that provides an Object-oriented Interface to php arrays",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Codebuster\\OopArrays\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Mohammed-Elmasry",
+            "email": "Mohammed.Hussein.Mahmoud@gmail.com"
+        }
+    ],
+    "minimum-stability": "beta",
+    "require": {}
+}
