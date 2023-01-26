@@ -4,6 +4,7 @@ namespace Codebuster\OopArrays;
 
 use ArrayAccess;
 use Codebuster\OopArrays\Exceptions\ArrayOutOfBoundException;
+use Codebuster\OopArrays\Traits\ArrayAccessible;
 
 /**
  * Class ArrayList
@@ -11,6 +12,7 @@ use Codebuster\OopArrays\Exceptions\ArrayOutOfBoundException;
  */
 class ArrayList implements ArrayAccess
 {
+    use ArrayAccessible;
 
     public const EMPTY_LENGTH = 0;
     private $array;
@@ -18,51 +20,6 @@ class ArrayList implements ArrayAccess
     public function __construct(array $arr = [])
     {
         $this->array = $arr;
-    }
-
-    /**
-     * @param mixed $offset
-     * @return bool
-     */
-    public function offsetExists($offset): bool
-    {
-        return isset($this->array[$offset]);
-    }
-
-    /**
-     * @param mixed $offset
-     * @return mixed
-     * @throws ArrayOutOfBoundException
-     */
-    public function offsetGet($offset)
-    {
-        if ($this->offsetExists($offset)) {
-            return $this->array[$offset];
-        }
-        throw new ArrayOutOfBoundException();
-    }
-
-    /**
-     * @param mixed $offset
-     * @param mixed $value
-     */
-    public function offsetSet($offset, $value): void
-    {
-        $this->array[$offset] = $value;
-    }
-
-    /**
-     * @param mixed $offset
-     * @return $this|void
-     * @throws ArrayOutOfBoundException
-     */
-    public function offsetUnset($offset)
-    {
-        if ($this->offsetExists($offset)) {
-            unset($this->array[$offset]);
-            return $this;
-        }
-        throw new ArrayOutOfBoundException();
     }
 
     /**
