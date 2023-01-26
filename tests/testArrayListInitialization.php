@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . "/../src/ArrayList.php";
+use Codebuster\OopArrays\ArrayList;
 
 use PHPUnit\Framework\TestCase;
 
