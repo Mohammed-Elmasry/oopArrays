@@ -1,5 +1,10 @@
 <?php
 
+namespace Codebuster\OopArrays;
+
+use ArrayAccess;
+use Codebuster\OopArrays\Exceptions\ArrayOutOfBoundException;
+
 /**
  * Class ArrayList
  *
@@ -7,6 +12,7 @@
 class ArrayList implements ArrayAccess
 {
 
+    public const EMPTY_LENGTH = 0;
     private $array;
 
     public function __construct(array $arr = [])
@@ -20,19 +26,20 @@ class ArrayList implements ArrayAccess
      */
     public function offsetExists($offset): bool
     {
-        return (in_array($offset, $this->array, true));
+        return isset($this->array[$offset]);
     }
 
     /**
      * @param mixed $offset
      * @return mixed
+     * @throws ArrayOutOfBoundException
      */
     public function offsetGet($offset)
     {
         if ($this->offsetExists($offset)) {
             return $this->array[$offset];
         }
-        throw new RuntimeException("Array index out of bound");
+        throw new ArrayOutOfBoundException();
     }
 
     /**
@@ -47,6 +54,7 @@ class ArrayList implements ArrayAccess
     /**
      * @param mixed $offset
      * @return $this|void
+     * @throws ArrayOutOfBoundException
      */
     public function offsetUnset($offset)
     {
@@ -54,7 +62,7 @@ class ArrayList implements ArrayAccess
             unset($this->array[$offset]);
             return $this;
         }
-        throw new RuntimeException("Array index out of bound");
+        throw new ArrayOutOfBoundException();
     }
 
     /**
@@ -63,7 +71,7 @@ class ArrayList implements ArrayAccess
      */
     public function isEmpty(): bool
     {
-        return count($this->array) === 0;
+        return count($this->array) === self::EMPTY_LENGTH;
     }
 
     /**
@@ -75,6 +83,4 @@ class ArrayList implements ArrayAccess
         return count($this->array);
     }
 }
-
-$arr = new ArrayList();
 
