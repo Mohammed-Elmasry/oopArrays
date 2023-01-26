@@ -9,9 +9,9 @@ class ArrayList implements ArrayAccess
 
     private $array;
 
-    public function __construct(?array $arr)
+    public function __construct(array $arr = [])
     {
-        $this->array = $arr ?? [];
+        $this->array = $arr;
     }
 
     /**
@@ -55,6 +55,24 @@ class ArrayList implements ArrayAccess
             return $this;
         }
         throw new RuntimeException("Array index out of bound");
+    }
+
+    /**
+     * Check if array is empty.
+     * @return bool
+     */
+    public function isEmpty(): bool
+    {
+        return count($this->array) === 0;
+    }
+
+    /**
+     * Get array length.
+     * @return int
+     */
+    public function length(): int
+    {
+        return count($this->array);
     }
 }
 
