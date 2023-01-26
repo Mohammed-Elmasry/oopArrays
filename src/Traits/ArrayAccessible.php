@@ -4,7 +4,6 @@
 namespace Codebuster\OopArrays\Traits;
 
 
-use Codebuster\OopArrays\ArrayList;
 use Codebuster\OopArrays\Exceptions\ArrayOutOfBoundException;
 
 trait ArrayAccessible
