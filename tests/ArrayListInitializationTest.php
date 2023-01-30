@@ -4,7 +4,7 @@ use Codebuster\OopArrays\ArrayList;
 
 use PHPUnit\Framework\TestCase;
 
-class testArrayListInitialization extends TestCase
+class ArrayListInitializationTest extends TestCase
 {
     public function test_initialized_array_with_empty_constructor_is_empty(): void
     {

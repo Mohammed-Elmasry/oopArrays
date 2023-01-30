@@ -4,7 +4,7 @@
 use Codebuster\OopArrays\ArrayList;
 use PHPUnit\Framework\TestCase;
 
-class testArrayListForeach extends TestCase
+class ArrayListForeachTest extends TestCase
 {
     public function test_array_list_is_iterable(): void
     {

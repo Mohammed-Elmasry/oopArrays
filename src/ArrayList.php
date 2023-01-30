@@ -43,5 +43,10 @@ class ArrayList implements ArrayAccess, Iterator
     {
         return count($this->array);
     }
+
+    public function insert(int $val)
+    {
+        array_push($this->array, $val);
+    }
 }
 

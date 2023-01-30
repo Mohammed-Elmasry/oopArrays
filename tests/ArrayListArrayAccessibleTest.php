@@ -5,7 +5,7 @@ use Codebuster\OopArrays\ArrayList;
 use Codebuster\OopArrays\Exceptions\ArrayOutOfBoundException;
 use PHPUnit\Framework\TestCase;
 
-class testArrayListArrayAccessible extends TestCase
+class ArrayListArrayAccessibleTest extends TestCase
 {
     private $al;
 
