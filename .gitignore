@@ -1,2 +1,4 @@
 .idea
 vendor
+.phpunit.result.cache
+src/test_index.php
