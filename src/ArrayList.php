@@ -5,6 +5,7 @@ namespace Codebuster\OopArrays;
 use ArrayAccess;
 use Codebuster\OopArrays\Exceptions\ArrayOutOfBoundException;
 use Codebuster\OopArrays\Traits\ArrayAccessible;
+use Codebuster\OopArrays\Traits\ArrayIterable;
 use Iterator;
 
 /**
@@ -13,7 +14,7 @@ use Iterator;
  */
 class ArrayList implements ArrayAccess, Iterator
 {
-    use ArrayAccessible;
+    use ArrayAccessible, ArrayIterable;
 
     public const EMPTY_LENGTH = 0;
     private $array;
@@ -41,31 +42,6 @@ class ArrayList implements ArrayAccess, Iterator
     public function length(): int
     {
         return count($this->array);
-    }
-
-    public function current()
-    {
-        return $this->array[$this->pointer];
-    }
-
-    public function next(): void
-    {
-        ++$this->pointer;
-    }
-
-    public function key()
-    {
-        return $this->array[$this->pointer];
-    }
-
-    public function valid(): bool
-    {
-        return isset($this->array[$this->pointer]);
-    }
-
-    public function rewind(): void
-    {
-        $this->pointer = 0;
     }
 }
 
