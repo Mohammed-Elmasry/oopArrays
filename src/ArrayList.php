@@ -3,7 +3,6 @@
 namespace Codebuster\OopArrays;
 
 use ArrayAccess;
-use Codebuster\OopArrays\Exceptions\ArrayOutOfBoundException;
 use Codebuster\OopArrays\Traits\ArrayAccessible;
 use Codebuster\OopArrays\Traits\ArrayIterable;
 use Iterator;
@@ -46,7 +45,7 @@ class ArrayList implements ArrayAccess, Iterator
 
     public function insert(int $val)
     {
-        array_push($this->array, $val);
+        array_unshift($this->array, $val);
     }
 }
 
